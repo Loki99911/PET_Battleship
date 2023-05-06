@@ -76,39 +76,38 @@ function drop(e) {
   // }
   if (draggedShip.style.flexDirection === "row") {
     if (draggedShip.classList.contains("x1")) {
-      this.classList.add("shipPart");
+      this.classList.add("shipPart_1");
     } else if (draggedShip.classList.contains("x2")) {
-      this.classList.add("shipPart");
-      this.nextElementSibling.classList.add("shipPart");
+      this.classList.add("shipPart_1");
+      this.nextElementSibling.classList.add("shipPart_2");
     } else if (draggedShip.classList.contains("x3")) {
-      this.classList.add("shipPart");
-      this.nextElementSibling.classList.add("shipPart");
-      this.nextElementSibling.nextElementSibling.classList.add("shipPart");
+      this.classList.add("shipPart_1");
+      this.nextElementSibling.classList.add("shipPart_2");
+      this.nextElementSibling.nextElementSibling.classList.add("shipPart_3");
     } else {
-      this.classList.add("shipPart");
-      this.nextElementSibling.classList.add("shipPart");
-      this.nextElementSibling.nextElementSibling.classList.add("shipPart");
+      this.classList.add("shipPart_1");
+      this.nextElementSibling.classList.add("shipPart_2");
+      this.nextElementSibling.nextElementSibling.classList.add("shipPart_3");
       this.nextElementSibling.nextElementSibling.nextElementSibling.classList.add(
-        "shipPart"
+        "shipPart_4"
       );
     }
   } else {
     if (draggedShip.classList.contains("x1")) {
-      this.classList.add("shipPart");
+      this.classList.add("shipPart_1");
     } else if (draggedShip.classList.contains("x2")) {
-      this.classList.add("shipPart");
-      document.getElementById(+activeSq + 10).classList.add("shipPart");
+      this.classList.add("shipPart_1");
+      document.getElementById(+activeSq + 10).classList.add("shipPart_2");
     } else if (draggedShip.classList.contains("x3")) {
-      this.classList.add("shipPart");
-      document.getElementById(+activeSq + 10).classList.add("shipPart");
-      document.getElementById(+activeSq + 20).classList.add("shipPart");
+      this.classList.add("shipPart_1");
+      document.getElementById(+activeSq + 10).classList.add("shipPart_2");
+      document.getElementById(+activeSq + 20).classList.add("shipPart_3");
     } else {
-      this.classList.add("shipPart");
-      document.getElementById(+activeSq + 10).classList.add("shipPart");
-      document.getElementById(+activeSq + 20).classList.add("shipPart");
-      document.getElementById(+activeSq + 30).classList.add("shipPart");
+      this.classList.add("shipPart_1");
+      document.getElementById(+activeSq + 10).classList.add("shipPart_2");
+      document.getElementById(+activeSq + 20).classList.add("shipPart_3");
+      document.getElementById(+activeSq + 30).classList.add("shipPart_4");
     }
-    
   }
 
   //   const paintSqer = document.querySelector(`#${sqer}`);
