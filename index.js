@@ -1,9 +1,6 @@
 const ships = document.querySelectorAll(".ship");
 const sqweres = document.querySelectorAll(".yourSqwere");
 const dropField = document.querySelector(".yourField");
-const rotateBtn = document.querySelector("#rotate");
-// const aaa = document.getElementById(50);
-// console.log(aaa);
 
 ships.forEach((ship) => {
   ship.addEventListener("dragstart", dragStart);
@@ -17,15 +14,12 @@ sqweres.forEach((sqwere) => {
   sqwere.addEventListener("drop", drop);
 });
 
-// dropField.addEventListener("dragover", dragOver);
-// dropField.addEventListener("dragenter", dragEnter);
-// dropField.addEventListener("dragleave", dragLeave);
-// dropField.addEventListener("drop", drop);
-
 let draggedShip = null;
 
 function dragStart(e) {
+  if (this.lastElementChild.textContent === "0") return;//додумать логику
   draggedShip = this;
+  // console.log(draggedShip.lastElementChild.textContent);
 }
 
 function dragEnd() {
@@ -37,43 +31,20 @@ function dragOver(e) {
 }
 
 function dragEnter(e) {
+  if (!draggedShip) return;
   e.preventDefault();
   this.classList.add("over");
 }
 
 function dragLeave() {
+  if (!draggedShip) return;
   this.classList.remove("over");
 }
 
 function drop(e) {
+  if (!draggedShip) return;
   const activeSq = this.getAttribute("id");
-  // console.log("drop", e);
-  // e.target.classList.add("ship")
-  // this.appendChild(draggedShip);
-  console.log(this.getAttribute("id"));
-  // switch (this.getAttribute("id")) {
-  //   case "x2":
-  //     this.classList.add("shipPart");
-  //     this.nextElementSibling.classList.add("shipPart");
-  //     break;
-  //   case "x3":
-  //     this.classList.add("shipPart");
-  //     this.nextElementSibling.classList.add("shipPart");
-  //     this.nextElementSibling.nextElementSibling.classList.add("shipPart");
-  //     break;
-  //   case "x4":
-  //     this.classList.add("shipPart");
-  //     this.nextElementSibling.classList.add("shipPart");
-  //     this.nextElementSibling.nextElementSibling.classList.add("shipPart");
-  //     this.nextElementSibling.nextElementSibling.nextElementSibling.classList.add(
-  //       "shipPart"
-  //     );
-  //     break;
-
-  //   default:
-  //     this.classList.add("shipPart");
-  //     break;
-  // }
+  // console.log(this.getAttribute("id"));
   if (draggedShip.style.flexDirection === "row") {
     if (draggedShip.classList.contains("x1")) {
       this.classList.add("shipPart_1");
@@ -109,20 +80,8 @@ function drop(e) {
       document.getElementById(+activeSq + 30).classList.add("shipPart_4");
     }
   }
-
-  //   const paintSqer = document.querySelector(`#${sqer}`);
-  // this.classList.add("shipPart"); //закомитить
   this.classList.remove("over");
+  draggedShip.lastElementChild.textContent--;
 }
 
-rotateBtn.addEventListener("click", rotate);
-function rotate() {
-  ships.forEach((ship) => {
-    if (ship.style.flexDirection === "column") {
-      ship.style.flexDirection = "row";
-    } else {
-      ship.style.flexDirection = "column";
-    }
-  });
-  console.log("dddd");
-}
+

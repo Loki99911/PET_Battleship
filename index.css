@@ -1,7 +1,26 @@
+p,
+div,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  padding: 0 32px;
+}
+
 .battleSection {
   display: flex;
-  gap: 50px;
+  position: relative;
   justify-content: space-between;
+}
+
+.fields{
+  display: inline-flex;
+  gap:30px
 }
 
 .yourField,
@@ -9,7 +28,7 @@
   display: grid;
   grid-template-columns: repeat(10, 50px);
   grid-template-rows: repeat(10, 50px);
-  border: 3px solid black;
+  outline: 3px solid black;
   border-radius: 1px;
 }
 
@@ -22,18 +41,23 @@
 }
 
 .shipPort {
-  width: 200;
+  position: absolute;
+  right: 32px;
+  display: flex;
+  flex-direction: column;
+  gap:30px;
+  /* width: 300px; */
+  font-size: 0;
 }
 
 .ship {
-  display: inline-flex;
+  display: flex;
   position: relative;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  background-color: blue;
   font-size: 24px;
+  border: 1px solid peru;
 }
 
 .ships_counter_x1,
@@ -41,6 +65,35 @@
 .ships_counter_x3,
 .ships_counter_x4 {
   position: absolute;
+}
+
+.shipDesk {
+  position: relative;
+  /* width: 100%; */
+  border: 1px dashed green;
+}
+
+.shipDock{
+  display: inline-block;
+  width: 200px;
+  height: 250px;
+}
+/* .shipDesk > .x2 {
+  height: 100px;
+}
+.shipDesk > .x3 {
+  height: 150px;
+}
+.shipDesk > .x4 {
+  height: 200px;
+} */
+
+.rotateBtn {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  font-size: 12px;
+  border-radius: 50%;
 }
 
 .shipPart,
