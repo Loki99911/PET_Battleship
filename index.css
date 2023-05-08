@@ -41,13 +41,40 @@ h4 {
 }
 
 .shipPort {
-  position: absolute;
-  right: 32px;
-  display: flex;
-  flex-direction: column;
+  /* position: absolute; */
+  /* right: 32px; */
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* flex-direction: column; */
   gap:30px;
-  /* width: 300px; */
   font-size: 0;
+}
+
+.shipDesk {
+  position: relative;
+  border: 2px solid black;
+  border-radius: 5px;
+  /* width: 100%; */
+}
+
+.shipDock{
+  display: inline-block;
+  width: 200px;
+  /* height: 200px; */
+  border-bottom: 2px solid black;
+}
+
+.shipDock > .x1 {
+  height: 50px;
+}
+.shipDock > .x2 {
+  height: 100px;
+}
+.shipDock > .x3 {
+  height: 150px;
+}
+.shipDock > .x4 {
+  height: 200px;
 }
 
 .ship {
@@ -60,33 +87,18 @@ h4 {
   /* border: 1px solid peru; */
 }
 
+.shipStatus {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .ships_counter_x1,
 .ships_counter_x2,
 .ships_counter_x3,
 .ships_counter_x4 {
   position: absolute;
 }
-
-.shipDesk {
-  position: relative;
-  /* width: 100%; */
-  /* border: 1px dashed green; */
-}
-
-.shipDock{
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-}
-/* .shipDesk > .x2 {
-  height: 100px;
-}
-.shipDesk > .x3 {
-  height: 150px;
-}
-.shipDesk > .x4 {
-  height: 200px;
-} */
 
 .rotateBtn {
   position: absolute;
