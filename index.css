@@ -57,7 +57,7 @@ h4 {
   align-items: center;
   color: #ffffff;
   font-size: 24px;
-  border: 1px solid peru;
+  /* border: 1px solid peru; */
 }
 
 .ships_counter_x1,
@@ -70,13 +70,13 @@ h4 {
 .shipDesk {
   position: relative;
   /* width: 100%; */
-  border: 1px dashed green;
+  /* border: 1px dashed green; */
 }
 
 .shipDock{
   display: inline-block;
   width: 200px;
-  height: 250px;
+  height: 200px;
 }
 /* .shipDesk > .x2 {
   height: 100px;

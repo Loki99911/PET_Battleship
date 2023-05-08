@@ -17,7 +17,7 @@ sqweres.forEach((sqwere) => {
 let draggedShip = null;
 
 function dragStart(e) {
-  if (this.lastElementChild.textContent === "0") return;//додумать логику
+  if (this.lastElementChild.textContent === "0") return; //додумать логику
   draggedShip = this;
   // console.log(draggedShip.lastElementChild.textContent);
 }
@@ -28,6 +28,7 @@ function dragEnd() {
 
 function dragOver(e) {
   e.preventDefault();
+  // this.classList.add("over");
 }
 
 function dragEnter(e) {
@@ -81,7 +82,10 @@ function drop(e) {
     }
   }
   this.classList.remove("over");
-  draggedShip.lastElementChild.textContent--;
+
+  const counterElem =
+    draggedShip.parentNode.nextElementSibling.firstElementChild
+      .firstElementChild;
+  console.log(counterElem.textContent);
+  counterElem.textContent--;
 }
-
-
