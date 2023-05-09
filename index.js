@@ -15,6 +15,7 @@ sqweres.forEach((sqwere) => {
 });
 
 let draggedShip = null;
+let shipLength = null;
 
 function dragStart(e) {
   e.dataTransfer.setDragImage(this, 25, 25);
@@ -25,6 +26,13 @@ function dragStart(e) {
   )
     return;
   draggedShip = this;
+  shipLength = draggedShip.classList.contains("x1")
+    ? 1
+    : draggedShip.classList.contains("x2")
+    ? 2
+    : draggedShip.classList.contains("x3")
+    ? 3
+    : 4;
 }
 
 function dragEnd() {
@@ -50,15 +58,8 @@ function dragLeave() {
 function drop(e) {
   const activeSq = this.getAttribute("id");
   if (!draggedShip) return;
-  const shipLength = draggedShip.classList.contains("x1")
-    ? 1
-    : draggedShip.classList.contains("x2")
-    ? 2
-    : draggedShip.classList.contains("x3")
-    ? 3
-    : 4;
   let newThis = this;
-  //
+  
   if (
     +activeSq + shipLength - 1 > Math.ceil(+activeSq / 10) * 10 &&
     draggedShip.style.flexDirection === "row"
