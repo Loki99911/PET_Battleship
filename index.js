@@ -17,19 +17,14 @@ sqweres.forEach((sqwere) => {
 let draggedShip = null;
 
 function dragStart(e) {
-  console.log(e);
+  e.dataTransfer.setDragImage(this, 25, 25);
+  console.log(e.dataTransfer);
   if (
     this.parentNode.nextElementSibling.querySelector(".ships_counter")
       .textContent === "0"
   )
     return;
-  // e.layerX = 25;
-  // e.layerY = 25;
-  e.offsetX = 25;
-  e.offsetY = 25;
-
   draggedShip = this;
-  // console.log(draggedShip.lastElementChild.textContent);
 }
 
 function dragEnd() {
@@ -53,9 +48,8 @@ function dragLeave() {
 }
 
 function drop(e) {
-  if (!draggedShip) return;
   const activeSq = this.getAttribute("id");
-
+  if (!draggedShip) return;
   const shipLength = draggedShip.classList.contains("x1")
     ? 1
     : draggedShip.classList.contains("x2")
@@ -64,6 +58,21 @@ function drop(e) {
     ? 3
     : 4;
   let newThis = this;
+  //
+  if (
+    +activeSq + shipLength - 1 > Math.ceil(+activeSq / 10) * 10 &&
+    draggedShip.style.flexDirection === "row"
+  ) {
+    return this.classList.remove("over");
+  }
+
+  if (
+    +activeSq + (shipLength - 1) * 10 > 100 &&
+    draggedShip.style.flexDirection === "column"
+  ) {
+    return this.classList.remove("over");
+  }
+
   newThis.classList.add("shipPart_1");
   for (let i = 2; i <= shipLength; i++) {
     if (draggedShip.style.flexDirection === "row") {
