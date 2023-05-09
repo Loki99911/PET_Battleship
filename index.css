@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 p,
 div,
 h1,
@@ -8,7 +12,7 @@ h4 {
   padding: 0;
 }
 
-.container{
+.container {
   padding: 0 32px;
 }
 
@@ -18,9 +22,10 @@ h4 {
   justify-content: space-between;
 }
 
-.fields{
+.fields {
   display: inline-flex;
-  gap:30px
+  gap: 30px;
+  max-height: 500px;
 }
 
 .yourField,
@@ -39,42 +44,59 @@ h4 {
 .over {
   border: 2px dashed red;
 }
-
+.portTitle {
+  text-align: center;
+  margin-bottom: 32px;
+}
 .shipPort {
-  /* position: absolute; */
-  /* right: 32px; */
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  /* flex-direction: column; */
-  gap:30px;
-  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.shipPortPart {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .shipDesk {
-  position: relative;
-  border: 2px solid black;
+  outline: 2px solid black;
   border-radius: 5px;
-  /* width: 100%; */
+  width: 220px;
+}
+.shipDesk.x1 {
+  height: 120px;
+}
+.shipDesk.x2 {
+  height: 170px;
+}
+.shipDesk.x3 {
+  height: 220px;
+}
+.shipDesk.x4 {
+  height: 270px;
 }
 
-.shipDock{
-  display: inline-block;
-  width: 200px;
-  /* height: 200px; */
-  border-bottom: 2px solid black;
+.shipDock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
 }
 
-.shipDock > .x1 {
-  height: 50px;
+.shipDock.x1 {
+  height: 70px;
 }
-.shipDock > .x2 {
-  height: 100px;
+.shipDock.x2 {
+  height: 120px;
 }
-.shipDock > .x3 {
-  height: 150px;
+.shipDock.x3 {
+  height: 170px;
 }
-.shipDock > .x4 {
-  height: 200px;
+.shipDock.x4 {
+  height: 220px;
 }
 
 .ship {
@@ -84,27 +106,37 @@ h4 {
   align-items: center;
   color: #ffffff;
   font-size: 24px;
-  /* border: 1px solid peru; */
 }
 
 .shipStatus {
   font-size: 24px;
   display: flex;
+  position: relative;
+  align-items: center;
   justify-content: space-between;
+  height: 50px;
+  padding: 10px;
+}
+.shipStatus::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 220px;
+  border: 1px solid #808080;
 }
 
 .ships_counter_x1,
 .ships_counter_x2,
 .ships_counter_x3,
 .ships_counter_x4 {
-  position: absolute;
+  margin-left: 10px;
 }
 
 .rotateBtn {
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
   font-size: 12px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 

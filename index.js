@@ -17,7 +17,17 @@ sqweres.forEach((sqwere) => {
 let draggedShip = null;
 
 function dragStart(e) {
-  if (this.lastElementChild.textContent === "0") return; //додумать логику
+  console.log(e);
+  if (
+    this.parentNode.nextElementSibling.querySelector(".ships_counter")
+      .textContent === "0"
+  )
+    return;
+  // e.layerX = 25;
+  // e.layerY = 25;
+  e.offsetX = 25;
+  e.offsetY = 25;
+
   draggedShip = this;
   // console.log(draggedShip.lastElementChild.textContent);
 }
@@ -45,47 +55,64 @@ function dragLeave() {
 function drop(e) {
   if (!draggedShip) return;
   const activeSq = this.getAttribute("id");
-  // console.log(this.getAttribute("id"));
-  if (draggedShip.style.flexDirection === "row") {
-    if (draggedShip.classList.contains("x1")) {
-      this.classList.add("shipPart_1");
-    } else if (draggedShip.classList.contains("x2")) {
-      this.classList.add("shipPart_1");
-      this.nextElementSibling.classList.add("shipPart_2");
-    } else if (draggedShip.classList.contains("x3")) {
-      this.classList.add("shipPart_1");
-      this.nextElementSibling.classList.add("shipPart_2");
-      this.nextElementSibling.nextElementSibling.classList.add("shipPart_3");
+
+  const shipLength = draggedShip.classList.contains("x1")
+    ? 1
+    : draggedShip.classList.contains("x2")
+    ? 2
+    : draggedShip.classList.contains("x3")
+    ? 3
+    : 4;
+  let newThis = this;
+  newThis.classList.add("shipPart_1");
+  for (let i = 2; i <= shipLength; i++) {
+    if (draggedShip.style.flexDirection === "row") {
+      newThis.nextElementSibling.classList.add(`shipPart_${i}`);
+      newThis = newThis.nextElementSibling;
     } else {
-      this.classList.add("shipPart_1");
-      this.nextElementSibling.classList.add("shipPart_2");
-      this.nextElementSibling.nextElementSibling.classList.add("shipPart_3");
-      this.nextElementSibling.nextElementSibling.nextElementSibling.classList.add(
-        "shipPart_4"
-      );
-    }
-  } else {
-    if (draggedShip.classList.contains("x1")) {
-      this.classList.add("shipPart_1");
-    } else if (draggedShip.classList.contains("x2")) {
-      this.classList.add("shipPart_1");
-      document.getElementById(+activeSq + 10).classList.add("shipPart_2");
-    } else if (draggedShip.classList.contains("x3")) {
-      this.classList.add("shipPart_1");
-      document.getElementById(+activeSq + 10).classList.add("shipPart_2");
-      document.getElementById(+activeSq + 20).classList.add("shipPart_3");
-    } else {
-      this.classList.add("shipPart_1");
-      document.getElementById(+activeSq + 10).classList.add("shipPart_2");
-      document.getElementById(+activeSq + 20).classList.add("shipPart_3");
-      document.getElementById(+activeSq + 30).classList.add("shipPart_4");
+      const nextElement = document.getElementById(+activeSq + 10 * (i - 1));
+      nextElement.classList.add(`shipPart_${i}`);
     }
   }
   this.classList.remove("over");
 
   const counterElem =
-    draggedShip.parentNode.nextElementSibling.firstElementChild
-      .firstElementChild;
-  console.log(counterElem.textContent);
+    draggedShip.parentNode.nextElementSibling.querySelector(".ships_counter");
   counterElem.textContent--;
 }
+
+// if (draggedShip.style.flexDirection === "row") {
+//   if (draggedShip.classList.contains("x1")) {
+//     this.classList.add("shipPart_1");
+//   } else if (draggedShip.classList.contains("x2")) {
+//     this.classList.add("shipPart_1");
+//     this.nextElementSibling.classList.add("shipPart_2");
+//   } else if (draggedShip.classList.contains("x3")) {
+//     this.classList.add("shipPart_1");
+//     this.nextElementSibling.classList.add("shipPart_2");
+//     this.nextElementSibling.nextElementSibling.classList.add("shipPart_3");
+//   } else {
+//     this.classList.add("shipPart_1");
+//     this.nextElementSibling.classList.add("shipPart_2");
+//     this.nextElementSibling.nextElementSibling.classList.add("shipPart_3");
+//     this.nextElementSibling.nextElementSibling.nextElementSibling.classList.add(
+//       "shipPart_4"
+//     );
+//   }
+// } else {
+//   if (draggedShip.classList.contains("x1")) {
+//     this.classList.add("shipPart_1");
+//   } else if (draggedShip.classList.contains("x2")) {
+//     this.classList.add("shipPart_1");
+//     document.getElementById(+activeSq + 10).classList.add("shipPart_2");
+//   } else if (draggedShip.classList.contains("x3")) {
+//     this.classList.add("shipPart_1");
+//     document.getElementById(+activeSq + 10).classList.add("shipPart_2");
+//     document.getElementById(+activeSq + 20).classList.add("shipPart_3");
+//   } else {
+//     this.classList.add("shipPart_1");
+//     document.getElementById(+activeSq + 10).classList.add("shipPart_2");
+//     document.getElementById(+activeSq + 20).classList.add("shipPart_3");
+//     document.getElementById(+activeSq + 30).classList.add("shipPart_4");
+//   }
+// }
