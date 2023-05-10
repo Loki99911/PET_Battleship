@@ -16,10 +16,12 @@ sqweres.forEach((sqwere) => {
 
 let draggedShip = null;
 let shipLength = null;
+const shipFragment = [];
+const shipAroundFragment = [];
+const tempBusySq = [];
 
 function dragStart(e) {
   e.dataTransfer.setDragImage(this, 25, 25);
-  console.log(e.dataTransfer);
   if (
     this.parentNode.nextElementSibling.querySelector(".ships_counter")
       .textContent === "0"
@@ -41,25 +43,56 @@ function dragEnd() {
 
 function dragOver(e) {
   e.preventDefault();
+  const startSquere = +this.getAttribute("id");
+  if (draggedShip.style.flexDirection === "row") {
+    const startFor = startSquere % 10 === 1 ? startSquere : startSquere - 1;
+    const endFor =
+      startSquere + shipLength > Math.ceil(startSquere / 10) * 10
+        ? startSquere + shipLength - 1
+        : startSquere + shipLength;
+    console.log();
+    for (let i = startFor; i <= endFor; i++) {
+      i - 10 >= 0 && document.getElementById(i - 10).classList.add("over"); //"-"верхнее поле
+      i > 0 && i <= 100 && document.getElementById(i).classList.add("over");
+      i + 10 <= 100 && document.getElementById(i + 10).classList.add("over"); //"-"нижнее поле
+    }
+  } else {
+  }
   // this.classList.add("over");
 }
 
 function dragEnter(e) {
   if (!draggedShip) return;
   e.preventDefault();
-  this.classList.add("over");
+  // this.classList.add("over");
 }
 
 function dragLeave() {
   if (!draggedShip) return;
-  this.classList.remove("over");
+  const startSquere = +this.getAttribute("id");
+  if (draggedShip.style.flexDirection === "row") {
+    const startFor = startSquere % 10 === 1 ? startSquere : startSquere - 1;
+    const endFor =
+      startSquere + shipLength > Math.ceil(startSquere / 10) * 10 //7+4>    (2)
+        ? startSquere + shipLength - 1
+        : startSquere + shipLength;
+    for (let i = startFor; i <= endFor; i++) {
+      i - 10 >= 0 && document.getElementById(i - 10).classList.remove("over"); //"-"верхнее поле
+      i > 0 && i <= 100 && document.getElementById(i).classList.remove("over");
+      i + 10 <= 100 && document.getElementById(i + 10).classList.remove("over"); //"-"нижнее поле
+    }
+  } else {
+  }
+  console.log(this);
+
+  // this.classList.remove("over");
 }
 
 function drop(e) {
   const activeSq = this.getAttribute("id");
   if (!draggedShip) return;
   let newThis = this;
-  
+
   if (
     +activeSq + shipLength - 1 > Math.ceil(+activeSq / 10) * 10 &&
     draggedShip.style.flexDirection === "row"
@@ -85,7 +118,7 @@ function drop(e) {
     }
   }
   this.classList.remove("over");
-
+  // console.log(tempBusySq);
   const counterElem =
     draggedShip.parentNode.nextElementSibling.querySelector(".ships_counter");
   counterElem.textContent--;
