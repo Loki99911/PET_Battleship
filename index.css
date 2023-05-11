@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+body{
+  transition: all 350ms ease-in;
+}
+
 p,
 div,
 h1,
@@ -43,6 +47,7 @@ h4 {
 
 .shipAria {
   background-color: rgb(150, 189, 150);
+  transition: background-color 200ms linear;
 }
 /* .over {
   border: 2px dashed rgb(64, 182, 62);
