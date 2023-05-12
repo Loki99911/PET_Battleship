@@ -1,6 +1,6 @@
 import shipAriaSelect from "./shipAriaSelect.js";
 
-const shipPut = (ship, shipLength, shipDirection, activeElem, field) => {
+const shipPut = (shipLength, shipDirection, activeElem, field) => {
   const activeElemNum = +activeElem.getAttribute("id");
   const isShipGoRight =
     activeElemNum + shipLength - 1 > Math.ceil(activeElemNum / 10) * 10 &&
@@ -15,7 +15,7 @@ const shipPut = (ship, shipLength, shipDirection, activeElem, field) => {
   );
 
   if (isShipGoRight || isShipGoDown || isShipOnShip) {
-    shipAriaSelect(ship, activeElemNum, shipLength, "shipAria", "remove");
+    shipAriaSelect(shipDirection, activeElemNum, shipLength, "shipAria", "remove");
     return false;
   }
 
@@ -30,8 +30,8 @@ const shipPut = (ship, shipLength, shipDirection, activeElem, field) => {
     }
   }
 
-  // shipAriaSelect(ship, activeElemNum, shipLength, "over", "add");
-  shipAriaSelect(ship, activeElemNum, shipLength, "shipAria", "remove");
+  // shipAriaSelect(shipDirection, activeElemNum, shipLength, "over", "add");
+  shipAriaSelect(shipDirection, activeElemNum, shipLength, "shipAria", "remove");
 
   return true;
 };

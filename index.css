@@ -41,8 +41,11 @@ h4 {
   border-radius: 1px;
 }
 
-.yourSqwere {
+.yourSqwere, .enemySqwere {
   border: 1px solid #808080;
+}
+.shadow{
+  background-color: black;
 }
 
 .shipAria {
@@ -117,7 +120,6 @@ h4 {
 
 .ship {
   display: flex;
-  position: relative;
   justify-content: center;
   align-items: center;
   color: #ffffff;

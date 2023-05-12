@@ -1,5 +1,5 @@
-const shipAriaSelect = (draggedShip, startSquere, shipLength, className, func)=> {
-  if (draggedShip.style.flexDirection === "row") {
+const shipAriaSelect = (direction, startSquere, shipLength, className, func)=> {
+  if (direction === "row") {
     const startFor = startSquere % 10 === 1 ? startSquere : startSquere - 1;
     const endFor =
       startSquere + shipLength > Math.ceil(startSquere / 10) * 10
