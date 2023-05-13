@@ -32,7 +32,6 @@ const shipPut = (shipLength, shipDirection, activeElem, field) => {
 
   // shipAriaSelect(shipDirection, activeElemNum, shipLength, "over", "add");
   shipAriaSelect(shipDirection, activeElemNum, shipLength, "shipAria", "remove");
-
   return true;
 };
 export default shipPut;
