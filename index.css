@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   transition: all 350ms ease-in;
 }
 
@@ -25,11 +25,53 @@ h4 {
   position: relative;
   justify-content: space-between;
 }
+.fieldsWrapper {
+  position: relative;
+}
 
 .fields {
   display: inline-flex;
   gap: 30px;
   max-height: 500px;
+  margin-bottom: 30px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  position: absolute;
+  z-index: -1;
+  top: 100%;
+  width: 100%;
+  gap: 30px;
+  justify-content: center;
+  transition: top 5000ms ease-in;
+}
+
+.buttonsWrapper.afterStart {
+  top: 0;
+}
+
+.gunsWrapper {
+  display: flex;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  width: 100%;
+  gap: 30px;
+  justify-content: center;
+  transition: top 5000ms ease-out;
+}
+.gunsWrapper.afterStart {
+  top: 100%;
+}
+
+.refreshBtn,
+.startBtn, .surrenderBtn {
+  width: 120px;
+  height: 40px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: #0977c1;
 }
 
 .yourField,
@@ -39,12 +81,14 @@ h4 {
   grid-template-rows: repeat(10, 50px);
   outline: 3px solid black;
   border-radius: 1px;
+  background-image: url("./img/water.jpg");
 }
 
-.yourSqwere, .enemySqwere {
+.yourSqwere,
+.enemySqwere {
   border: 1px solid #808080;
 }
-.shadow{
+.enemySqwere.shadow {
   background-color: black;
 }
 

@@ -1,4 +1,13 @@
-const shipAriaSelect = (direction, startSquere, shipLength, className, func)=> {
+const shipAriaSelect = (
+  direction,
+  startSquere,
+  shipLength,
+  className,
+  func
+) => {
+  const maxSquere = startSquere <= 100 ? 100 : 200;
+  const minSquere = startSquere <= 100 ? 1 : 101;
+  const minFieldVert = startSquere <= 100 ? 10: 110;
   if (direction === "row") {
     const startFor = startSquere % 10 === 1 ? startSquere : startSquere - 1;
     const endFor =
@@ -7,47 +16,49 @@ const shipAriaSelect = (direction, startSquere, shipLength, className, func)=> {
         : startSquere + shipLength;
     for (let i = startFor; i <= endFor; i++) {
       func === "add"
-        ? i - 10 > 0 && document.getElementById(i - 10).classList.add(className)
-        : i - 10 > 0 &&
+        ? i - 10 >= minSquere &&
+          document.getElementById(i - 10).classList.add(className)
+        : i - 10 >= minSquere &&
           document.getElementById(i - 10).classList.remove(className);
       func === "add"
-        ? i > 0 &&
-          i <= 100 &&
+        ? i >= minSquere &&
+          i <= maxSquere &&
           document.getElementById(i).classList.add(className)
-        : i > 0 &&
-          i <= 100 &&
+        : i >= minSquere &&
+          i <= maxSquere &&
           document.getElementById(i).classList.remove(className);
       func === "add"
-        ? i + 10 <= 100 &&
+        ? i + 10 <= maxSquere &&
           document.getElementById(i + 10).classList.add(className)
-        : i + 10 <= 100 &&
+        : i + 10 <= maxSquere &&
           document.getElementById(i + 10).classList.remove(className);
     }
   } else {
-    const startFor = startSquere <= 10 ? startSquere : startSquere - 10;
+    const startFor =
+      startSquere <= minFieldVert ? startSquere : startSquere - 10;
     const endFor =
-      startSquere + shipLength * 10 > 100
-        ? startSquere + Math.floor((100 - startSquere) / 10) * 10
+      startSquere + shipLength * 10 > maxSquere
+        ? startSquere + Math.floor((maxSquere - startSquere) / 10) * 10
         : startSquere + shipLength * 10;
     for (let i = startFor; i <= endFor; i = i + 10) {
       func === "add"
         ? (i - 1) % 10 !== 0 &&
           document.getElementById(i - 1).classList.add(className)
         : (i - 1) % 10 !== 0 &&
-          document.getElementById(i - 1).classList.remove(className);
+          document.getElementById(i - 1).classList.remove(className); //---???---
       func === "add"
-        ? i > 0 &&
-          i <= 100 &&
+        ? i >= minSquere &&
+          i <= maxSquere &&
           document.getElementById(i).classList.add(className)
-        : i > 0 &&
-          i <= 100 &&
+        : i >= minSquere &&
+          i <= maxSquere &&
           document.getElementById(i).classList.remove(className);
       func === "add"
         ? i % 10 !== 0 &&
           document.getElementById(i + 1).classList.add(className)
         : i % 10 !== 0 &&
-          document.getElementById(i + 1).classList.remove(className);
+          document.getElementById(i + 1).classList.remove(className); //---???---
     }
   }
-}
+};
 export default shipAriaSelect;

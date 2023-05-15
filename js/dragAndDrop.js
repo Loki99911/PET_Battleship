@@ -1,3 +1,4 @@
+import btnDisabled from "./btnDisabled.js";
 import shipAriaSelect from "./shipAriaSelect.js";
 import shipPut from "./shipPut.js";
 const dragAndDrop = () => {
@@ -35,7 +36,7 @@ const dragAndDrop = () => {
       ? 2
       : draggedShip.classList.contains("x3")
       ? 3
-          : 4;
+      : 4;
     shipDirection = this.style.flexDirection;
   }
 
@@ -71,17 +72,13 @@ const dragAndDrop = () => {
     if (!draggedShip) return;
     let newElem = this;
     const shipDirection = draggedShip.style.flexDirection;
-    const shipOnField = shipPut(
-      // draggedShip,
-      shipLength,
-      shipDirection,
-      newElem,
-      dropField
-    );
+    const shipOnField = shipPut(shipLength, shipDirection, newElem, dropField);
     if (shipOnField) {
       draggedShip.parentNode.nextElementSibling.querySelector(".ships_counter")
         .textContent--;
+      btnDisabled();
     }
+
   }
 };
 export default dragAndDrop;

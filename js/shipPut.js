@@ -1,21 +1,31 @@
 import shipAriaSelect from "./shipAriaSelect.js";
 
 const shipPut = (shipLength, shipDirection, activeElem, field) => {
+  const maxSquere = field.classList.contains("yourField")? 100 : 200;
   const activeElemNum = +activeElem.getAttribute("id");
   const isShipGoRight =
     activeElemNum + shipLength - 1 > Math.ceil(activeElemNum / 10) * 10 &&
     shipDirection === "row";
+  
   const isShipGoDown =
-    activeElemNum + (shipLength - 1) * 10 > 100 && shipDirection === "column";
+    activeElemNum + (shipLength - 1) * 10 > maxSquere &&
+    shipDirection === "column";
+  
   const isShipOnShip = !!(
     field.querySelector(".shipPart_1.shipAria") ||
     field.querySelector(".shipPart_2.shipAria") ||
     field.querySelector(".shipPart_3.shipAria") ||
     field.querySelector(".shipPart_4.shipAria")
   );
-
+  
   if (isShipGoRight || isShipGoDown || isShipOnShip) {
-    shipAriaSelect(shipDirection, activeElemNum, shipLength, "shipAria", "remove");
+    shipAriaSelect(
+      shipDirection,
+      activeElemNum,
+      shipLength,
+      "shipAria",
+      "remove"
+    );
     return false;
   }
 
