@@ -16,6 +16,10 @@ h4 {
   padding: 0;
 }
 
+img {
+  display: block;
+}
+
 .container {
   padding: 0 32px;
 }
@@ -27,13 +31,14 @@ h4 {
 }
 .fieldsWrapper {
   position: relative;
+  background-color: #fff;
+  flex-direction: column;
 }
 
 .fields {
   display: inline-flex;
   gap: 30px;
   max-height: 500px;
-  margin-bottom: 30px;
 }
 
 .buttonsWrapper {
@@ -44,7 +49,8 @@ h4 {
   width: 100%;
   gap: 30px;
   justify-content: center;
-  transition: top 5000ms ease-in;
+  transition: top 2000ms ease-in;
+  padding-top: 30px;
 }
 
 .buttonsWrapper.afterStart {
@@ -58,15 +64,52 @@ h4 {
   top: 0;
   width: 100%;
   gap: 30px;
+  flex-direction: column;
   justify-content: center;
-  transition: top 5000ms ease-out;
+  align-items: center;
+  transition: top 2000ms ease-out;
+  padding-top: 30px;
 }
+
 .gunsWrapper.afterStart {
   top: 100%;
 }
 
+.guns {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.gunField {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+.yourGun,
+.enemyGun {
+  transition: transform 350ms ease-in;
+}
+.cannonball {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  height: 25px;
+  top:50%;
+  left:50%;
+  background-image: url("./img/cannonball.jpg");
+  background-size: cover;
+  transition: transform 350ms cubic-bezier(0,0.5,0.5,0);
+  z-index: 0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
 .refreshBtn,
-.startBtn, .surrenderBtn {
+.startBtn,
+.surrenderBtn {
   width: 120px;
   height: 40px;
   border: 1px solid transparent;
@@ -211,3 +254,17 @@ h4 {
   height: 50px;
   background-color: blue;
 }
+
+/* .yourSqwere.shipPart_1,
+.yourSqwere.shipPart_2,
+.yourSqwere.shipPart_3,
+.yourSqwere.shipPart_4 {
+  background-image: linear-gradient(to bottom, #FFD500 50%, #005BBF 50%);
+}
+
+.enemySqwere.shipPart_1,
+.enemySqwere.shipPart_2,
+.enemySqwere.shipPart_3,
+.enemySqwere.shipPart_4 {
+  background-image: linear-gradient(to bottom, #FFFFFF 33.33%, #0039A6 33.33%, #0039A6 66.66%, #D52B1E 66.66%);
+} */
