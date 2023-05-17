@@ -10,11 +10,11 @@ const startGame = () => {
   ships.map((shipLength) => {
     let result = false;
     while (!result) {
-    const shipDirection = Math.round(Math.random()) === 0 ? "row" : "column";
-    const shipId = Math.round(Math.random() * 99 + 101);
-    const activeElem = dropField.querySelector(`[id="${shipId}"]`);
-    shipAriaSelect(shipDirection, shipId, shipLength, "shipAria", "add");
-    result = shipPut(shipLength, shipDirection, activeElem, dropField);
+      const shipDirection = Math.round(Math.random()) === 0 ? "row" : "column";
+      const shipId = Math.round(Math.random() * 99 + 101);
+      const activeElem = dropField.querySelector(`[id="${shipId}"]`);
+      shipAriaSelect(shipDirection, shipId, shipLength, "shipAria", "add");
+      result = shipPut(shipLength, shipDirection, activeElem, dropField);
     }
   });
 
@@ -26,5 +26,9 @@ const startGame = () => {
   const gunsWrapper = document.querySelector(".gunsWrapper");
   buttonsWrapper.classList.add("afterStart");
   gunsWrapper.classList.add("afterStart");
+  
+  gunsWrapper.addEventListener("transitionend", () => {
+    gunsWrapper.style.zIndex = "0";
+  }, true);
 };
 export default startGame;

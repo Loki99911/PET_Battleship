@@ -91,20 +91,30 @@ img {
 .yourGun,
 .enemyGun {
   transition: transform 350ms ease-in;
+  position: relative;
+  z-index: 10;
 }
 .cannonball {
   position: absolute;
   transform: translate(-50%, -50%);
   width: 25px;
   height: 25px;
-  top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   background-image: url("./img/cannonball.jpg");
   background-size: cover;
-  transition: transform 350ms cubic-bezier(0,0.5,0.5,0);
-  z-index: 0;
+  transition: transform 350ms ease-in;
+  z-index: 5;
   border-radius: 15px;
-  overflow: hidden;
+}
+.cannonball.return {
+  animation: moveBack 2s 1s infinite alternate;
+}
+
+@keyframes moveBack {
+  to {
+    transform: translate(-50%, -50%);
+  }
 }
 
 .refreshBtn,
@@ -139,9 +149,6 @@ img {
   background-color: rgb(150, 189, 150);
   transition: background-color 200ms linear;
 }
-/* .over {
-  border: 2px dashed rgb(64, 182, 62);
-} */
 
 .shipPart_1.shipAria,
 .shipPart_2.shipAria,

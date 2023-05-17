@@ -31,15 +31,29 @@ const gunAction = (sqwereElement, gunElement, ballElement) => {
     (180 / Math.PI);
 
   gunElement.style.transform = `rotate(${angle}deg)`;
-  ballElement.style.transform = `translate(${centerSqX - centerBallX}px, ${
-    centerSqY - centerBallY
+
+  setTimeout(() => {
+    ballElement.style.transform = `translate(${centerSqX - centerBallX}px, ${
+      centerSqY - centerBallY+100
     }px)`;
-  ballElement.style.opacity = "0";
-  ballElement.style.transform = `translate(-50%,-50%)`;
-  ballElement.style.opacity = "1";
+  }, 350);
   
+  
+  setTimeout(() => {
+    ballElement.style.opacity = "0";
+    gunElement.style.transform = "";
+    ballElement.style.transform = "";
+    setTimeout(() => {
+      ballElement.style.opacity = "1";
+    }, 700);
+  }, 700);
+};
+export default gunAction;
+
+// function moveBlock() {
+//   ballElement.classList.add("returnBall");
+//   }
+//   moveBlock();
   // ballElement.style.transform = `translate(${centerSqX - centerBallX}px, ${
   //   centerSqY - centerBallY
   // }px)`;
-};
-export default gunAction;
