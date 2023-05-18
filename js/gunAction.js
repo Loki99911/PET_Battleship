@@ -34,7 +34,7 @@ const gunAction = (sqwereElement, gunElement, ballElement) => {
 
   setTimeout(() => {
     ballElement.style.transform = `translate(${centerSqX - centerBallX}px, ${
-      centerSqY - centerBallY+100
+      centerSqY - centerBallY
     }px)`;
   }, 350);
   

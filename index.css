@@ -33,6 +33,7 @@ img {
   position: relative;
   background-color: #fff;
   flex-direction: column;
+  margin-right: 30px;
 }
 
 .fields {
@@ -119,7 +120,8 @@ img {
 
 .refreshBtn,
 .startBtn,
-.surrenderBtn {
+.surrenderBtn,
+.randomShipBtn {
   width: 120px;
   height: 40px;
   border: 1px solid transparent;
@@ -140,8 +142,11 @@ img {
 .yourSqwere,
 .enemySqwere {
   border: 1px solid #808080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.enemySqwere.shadow {
+.enemySqwere.shadow, .yourSqwere.shadow  {
   background-color: black;
 }
 
@@ -165,6 +170,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  min-width: 470px;
 }
 
 .shipPortPart {

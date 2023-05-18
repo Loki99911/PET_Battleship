@@ -6,7 +6,9 @@ import refreshCounter from "./refreshCounter.js";
 
 import startGame from "./startGame.js";
 import stopGame from "./stopGame.js";
+import addUserShips from "./addUserShips.js";
 
+const randomUserShip = document.querySelector(".randomShipBtn");
 const refreshBtn = document.querySelector(".refreshBtn");
 const startBtn = document.querySelector(".startBtn");
 const surrenderBtn = document.querySelector(".surrenderBtn");
@@ -16,6 +18,7 @@ createField("enemyField", ["enemySqwere", "shadow"], 100);
 dragAndDrop();
 shipRotate();
 
+randomUserShip.addEventListener("click", addUserShips);
 refreshBtn.addEventListener("click", () => {
     refreshField("yourField", ["yourSqwere"], 100)
     refreshCounter();
