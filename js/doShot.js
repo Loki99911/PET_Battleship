@@ -18,7 +18,7 @@ const doShot = (event) => {
   result.src = shipAvailab ? "./../img/shoted.png" : "./../img/dot.png";
   result.alt = shipAvailab ? "shoted" : "missed";
   result.width = shipAvailab ? 30 : 20;
-  
+  console.log(result);
   event.target.classList.remove("shadow");
   event.target.append(result);
   if (shipAvailab) {
