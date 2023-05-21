@@ -58,7 +58,7 @@ img {
   top: 0;
 }
 
-.gunsWrapper {
+.gunsWrapper, .scoreWrapper {
   display: flex;
   position: absolute;
   z-index: -1;
@@ -72,17 +72,17 @@ img {
   padding-top: 30px;
 }
 
-.gunsWrapper.afterStart {
+.gunsWrapper.afterStart, .scoreWrapper.getScore {
   top: 100%;
 }
 
-.guns {
+.guns, .score {
   display: flex;
   justify-content: space-around;
   width: 100%;
 }
 
-.gunField {
+.gunField, .scoreField {
   position: relative;
   display: flex;
   align-items: center;
@@ -121,12 +121,34 @@ img {
 .refreshBtn,
 .startBtn,
 .surrenderBtn,
-.randomShipBtn {
+.randomShipBtn,
+.restartBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 120px;
   height: 40px;
   border: 1px solid transparent;
   border-radius: 10px;
-  background: #0977c1;
+  background-color: green;
+  transition: background-color 350ms linear, scale 350ms linear;
+}
+.refreshBtn:hover,
+.startBtn:hover,
+.surrenderBtn:hover,
+.randomShipBtn:hover,
+.restartBtn:hover{
+  background-color: yellow;
+  scale: 1.2;
+}
+
+.refreshBtn:disabled,
+.startBtn:disabled,
+.surrenderBtn:disabled,
+.randomShipBtn:disabled,
+.restartBtn:disabled,
+.rotateBtn:hover {
+  background-color: red;
 }
 
 .yourField,
@@ -146,7 +168,8 @@ img {
   justify-content: center;
   align-items: center;
 }
-.enemySqwere.shadow, .yourSqwere.shadow  {
+.enemySqwere.shadow,
+.yourSqwere.shadow {
   background-color: black;
 }
 
@@ -252,17 +275,36 @@ img {
 }
 
 .rotateBtn {
-  font-size: 12px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  /* font-size: 12px; */
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: green;
+  transition: background-color 350ms linear;
 }
-.rotateIcon{
-  width: 30px;
-  height: 30px;
+.rotateBtn:hover {
+  background-color: yellow;
+}
+
+.rotateBtn img {
+  transition: transform 350ms linear;
+}
+
+.rotateBtn:hover img {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .shipPart,
 .shipPart_1,

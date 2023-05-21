@@ -13,9 +13,12 @@ const startGame = () => {
   const gunsWrapper = document.querySelector(".gunsWrapper");
   buttonsWrapper.classList.add("afterStart");
   gunsWrapper.classList.add("afterStart");
-  
-  gunsWrapper.addEventListener("transitionend", () => {
+
+  const handleTransitionEnd = () => {
     gunsWrapper.style.zIndex = "0";
-  }, true);
+    gunsWrapper.removeEventListener("transitionend", handleTransitionEnd);
+  };
+
+  gunsWrapper.addEventListener("transitionend", handleTransitionEnd);
 };
 export default startGame;
