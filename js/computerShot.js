@@ -12,10 +12,7 @@ const computerShot = () => {
 
   gunAction(sqwereElement, yourGunElement, yourBallElement);
   const shipAvailab =
-    sqwereElement.classList.contains("shipPart_1") ||
-    sqwereElement.classList.contains("shipPart_2") ||
-    sqwereElement.classList.contains("shipPart_3") ||
-    sqwereElement.classList.contains("shipPart_4");
+    sqwereElement.classList.contains("shipPart");
 
   const result = document.createElement("img");
 

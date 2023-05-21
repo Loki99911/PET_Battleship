@@ -1,56 +1,51 @@
 import computerShot from "./computerShot.js";
 import gunAction from "./gunAction.js";
 import stopGame from "./stopGame.js";
+import whoWins from "./whoWins.js";
+import yourShot from "./yourShot.js";
 
 const doShot = (event) => {
+  let winner = null;
   const sqwereElement = event.target;
-  const yourGunElement = document.querySelector(".yourGun");
-  const yourBallElement = yourGunElement.nextElementSibling;
 
-  gunAction(sqwereElement, yourGunElement, yourBallElement);
-  const shipAvailab =
-    event.target.classList.contains("shipPart_1") ||
-    event.target.classList.contains("shipPart_2") ||
-    event.target.classList.contains("shipPart_3") ||
-    event.target.classList.contains("shipPart_4");
-  
-  const result = document.createElement("img");
+  const brake = yourShot(sqwereElement);
 
-  result.src = shipAvailab ? "./../img/shoted.png" : "./../img/dot.png";
-  result.alt = shipAvailab ? "shoted" : "missed";
-  result.width = shipAvailab ? 30 : 20;
-  event.target.classList.remove("shadow");
-  event.target.append(result);
-  if (shipAvailab) {
-    return;
+  winner = whoWins();
+  if (winner === "you") {
+    return alert("you Win!");
   }
+
+  if (brake) return;
+console.log("next ");
   setTimeout(() => {
     computerShot();
+    winner = whoWins();
+    if (winner === "enemy") {
+      return alert("you Lose!");
+    }
   }, 700);
-  
-  const yourField = document.querySelector(".yourField");
-  const yourShips = yourField.querySelectorAll(".shipPart");
-  const enemyField = document.querySelector(".enemyField");
-  const enemyShips = enemyField.querySelectorAll(".shipPart");
-  let yourShipsLeft = false;
-  let enemyShipsLeft = false;
-  yourShips.forEach((ship) => {
-    if (!ship.hasChildNodes()) {
-      yourShipsLeft = true;
-    }
-  });
-  enemyShips.forEach((ship) => {
-    if (!ship.hasChildNodes()) {
-      enemyShipsLeft = true;
-    }
-  });
-  console.log(yourShipsLeft, enemyShipsLeft);
 
-  if (yourShipsLeft || enemyShipsLeft) {
-    console.log("result");
-    yourShipsLeft && alert("you Win!");
-    !yourShipsLeft && alert("you Lose!");
-    // stopGame();
-  }
+  //Закончить логику проиграша!!!!!
+  // const yourField = document.querySelector(".yourField");
+  // const yourShips = yourField.querySelectorAll(".shipPart");
+  // const enemyField = document.querySelector(".enemyField");
+  // const enemyShips = enemyField.querySelectorAll(".shipPart");
+  // const yourShipsDown = [];
+  // const enemyShipsDown = [];
+  // yourShips.forEach((ship) => {
+  //   if (ship.hasChildNodes()) {
+  //     yourShipsDown.push(ship);
+  //   }
+  // });
+  // enemyShips.forEach((ship) => {
+  //   if (ship.hasChildNodes()) {
+  //     enemyShipsDown.push(ship);
+  //   }
+  // });
+
+  // if (yourShipsDown.length === 20 || enemyShipsDown.length === 20) {
+  //   !yourShipsDown.length === 20 && alert("you Win!");
+  //   !enemyShipsDown.length === 20 && alert("you Lose!");
+  // }
 };
 export default doShot;

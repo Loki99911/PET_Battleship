@@ -58,7 +58,8 @@ img {
   top: 0;
 }
 
-.gunsWrapper, .scoreWrapper {
+.gunsWrapper,
+.scoreWrapper {
   display: flex;
   position: absolute;
   z-index: -1;
@@ -72,17 +73,20 @@ img {
   padding-top: 30px;
 }
 
-.gunsWrapper.afterStart, .scoreWrapper.getScore {
+.gunsWrapper.afterStart,
+.scoreWrapper.getScore {
   top: 100%;
 }
 
-.guns, .score {
+.guns,
+.score {
   display: flex;
   justify-content: space-around;
   width: 100%;
 }
 
-.gunField, .scoreField {
+.gunField,
+.scoreField {
   position: relative;
   display: flex;
   align-items: center;
@@ -137,7 +141,7 @@ img {
 .startBtn:hover,
 .surrenderBtn:hover,
 .randomShipBtn:hover,
-.restartBtn:hover{
+.restartBtn:hover {
   background-color: yellow;
   scale: 1.2;
 }
@@ -178,10 +182,10 @@ img {
   transition: background-color 200ms linear;
 }
 
-.shipPart_1.shipAria,
-.shipPart_2.shipAria,
-.shipPart_3.shipAria,
-.shipPart_4.shipAria {
+.shipPart.shipAria,
+.shipPart.shipAria,
+.shipPart.shipAria,
+.shipPart.shipAria {
   background-color: rgb(231, 115, 52);
 }
 
@@ -307,25 +311,25 @@ img {
   }
 }
 .shipPart,
-.shipPart_1,
-.shipPart_2,
-.shipPart_3,
-.shipPart_4 {
+.shipPart,
+.shipPart,
+.shipPart,
+.shipPart {
   width: 50px;
   height: 50px;
   background-color: blue;
 }
 
-/* .yourSqwere.shipPart_1,
-.yourSqwere.shipPart_2,
-.yourSqwere.shipPart_3,
-.yourSqwere.shipPart_4 {
+/* .yourSqwere.shipPart,
+.yourSqwere.shipPart,
+.yourSqwere.shipPart,
+.yourSqwere.shipPart {
   background-image: linear-gradient(to bottom, #FFD500 50%, #005BBF 50%);
 }
 
-.enemySqwere.shipPart_1,
-.enemySqwere.shipPart_2,
-.enemySqwere.shipPart_3,
-.enemySqwere.shipPart_4 {
+.enemySqwere.shipPart,
+.enemySqwere.shipPart,
+.enemySqwere.shipPart,
+.enemySqwere.shipPart {
   background-image: linear-gradient(to bottom, #FFFFFF 33.33%, #0039A6 33.33%, #0039A6 66.66%, #D52B1E 66.66%);
 } */
