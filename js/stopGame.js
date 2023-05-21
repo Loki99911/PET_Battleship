@@ -16,6 +16,7 @@ const stopGame = () => {
     true
   );
   gunsWrapper.classList.remove("afterStart");
-  scoreWrapper.classList.add("getScore");
+    scoreWrapper.classList.add("getScore");
+    
 };
 export default stopGame;

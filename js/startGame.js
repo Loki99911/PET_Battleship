@@ -4,13 +4,9 @@ import addRandomShips from "./addRandomShips.js";
 const startGame = () => {
   const dropField = document.querySelector(".enemyField");
   const enemySqweres = document.querySelectorAll(".enemySqwere");
-  addRandomShips(dropField);
-  enemySqweres.forEach((enemySqwere) => {
-    enemySqwere.addEventListener("click", doShot);
-  });
-
   const buttonsWrapper = document.querySelector(".buttonsWrapper");
   const gunsWrapper = document.querySelector(".gunsWrapper");
+
   buttonsWrapper.classList.add("afterStart");
   gunsWrapper.classList.add("afterStart");
 
@@ -20,5 +16,11 @@ const startGame = () => {
   };
 
   gunsWrapper.addEventListener("transitionend", handleTransitionEnd);
+
+  addRandomShips(dropField);
+  
+  enemySqweres.forEach((enemySqwere) => {
+    enemySqwere.addEventListener("click", doShot);
+  });
 };
 export default startGame;

@@ -1,5 +1,6 @@
 import computerShot from "./computerShot.js";
 import gunAction from "./gunAction.js";
+import stopGame from "./stopGame.js";
 
 const doShot = (event) => {
   const sqwereElement = event.target;
@@ -18,7 +19,6 @@ const doShot = (event) => {
   result.src = shipAvailab ? "./../img/shoted.png" : "./../img/dot.png";
   result.alt = shipAvailab ? "shoted" : "missed";
   result.width = shipAvailab ? 30 : 20;
-  console.log(result);
   event.target.classList.remove("shadow");
   event.target.append(result);
   if (shipAvailab) {
@@ -27,5 +27,30 @@ const doShot = (event) => {
   setTimeout(() => {
     computerShot();
   }, 700);
+  
+  const yourField = document.querySelector(".yourField");
+  const yourShips = yourField.querySelectorAll(".shipPart");
+  const enemyField = document.querySelector(".enemyField");
+  const enemyShips = enemyField.querySelectorAll(".shipPart");
+  let yourShipsLeft = false;
+  let enemyShipsLeft = false;
+  yourShips.forEach((ship) => {
+    if (!ship.hasChildNodes()) {
+      yourShipsLeft = true;
+    }
+  });
+  enemyShips.forEach((ship) => {
+    if (!ship.hasChildNodes()) {
+      enemyShipsLeft = true;
+    }
+  });
+  console.log(yourShipsLeft, enemyShipsLeft);
+
+  if (yourShipsLeft || enemyShipsLeft) {
+    console.log("result");
+    yourShipsLeft && alert("you Win!");
+    !yourShipsLeft && alert("you Lose!");
+    // stopGame();
+  }
 };
 export default doShot;
