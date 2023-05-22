@@ -15,7 +15,8 @@ const yourShot = (sqwereElement) => {
     const result = document.createElement("img");
     result.src = shipAvailab ? "./../img/shoted.png" : "./../img/dot.png";
     result.alt = shipAvailab ? "shoted" : "missed";
-    result.width = shipAvailab ? 30 : 20;
+  result.width = shipAvailab ? 30 : 20;
+  console.log("перед Append");
     sqwereElement.append(result);
     if (shipAvailab) {
       return true;

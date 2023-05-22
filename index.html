@@ -9,10 +9,19 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <header>Result</header>
+    <header>
+      <h1>BattleShip</h1>
+      <img src="./img/Ship.jpg" alt="ship" height="100" />
+    </header>
     <main>
       <section class="battleSection container">
         <div class="fieldsWrapper">
@@ -59,7 +68,7 @@
               </div>
               <div class="scoreField">
                 <h3>Enemy wins:</h3>
-                <h4 id="EnemyScore">0</h4>
+                <h4 id="enemyScore">0</h4>
               </div>
             </div>
           </div>

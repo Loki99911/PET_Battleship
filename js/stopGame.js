@@ -8,15 +8,21 @@ const stopGame = () => {
     enemySqwere.removeEventListener("click", doShot);
     enemySqwere.classList.remove("shadow");
   });
-  gunsWrapper.addEventListener(
-    "transitionstart",
-    () => {
-      gunsWrapper.style.zIndex = "-1";
-    },
-    true
-  );
+  
   gunsWrapper.classList.remove("afterStart");
-    scoreWrapper.classList.add("getScore");
-    
+  scoreWrapper.classList.add("getScore");
+
+  const handleTransitionstart = () => {
+    gunsWrapper.style.zIndex = "-1";
+    gunsWrapper.removeEventListener("transitionstart", handleTransitionstart);
+  };
+  const handleTransitionEnd = () => {
+    scoreWrapper.style.zIndex = "0";
+    scoreWrapper.removeEventListener("transitionend", handleTransitionEnd);
+  };
+  gunsWrapper.addEventListener("transitionstart", handleTransitionstart);
+  scoreWrapper.addEventListener("transitionend", handleTransitionEnd);
+
+  
 };
 export default stopGame;

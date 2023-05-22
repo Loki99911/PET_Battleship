@@ -8,6 +8,7 @@ import startGame from "./startGame.js";
 import stopGame from "./stopGame.js";
 import addUserShips from "./addUserShips.js";
 import restartGame from "./restartGame.js";
+import startFlag from "../startFlag.js";
 
 const randomUserShip = document.querySelector(".randomShipBtn");
 const refreshBtn = document.querySelector(".refreshBtn");
@@ -19,6 +20,7 @@ createField("yourField", ["yourSqwere"], 100);
 createField("enemyField", ["enemySqwere", "shadow"], 100);
 dragAndDrop();
 shipRotate();
+startFlag();
 
 randomUserShip.addEventListener("click", addUserShips);
 refreshBtn.addEventListener("click", () => {
