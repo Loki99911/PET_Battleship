@@ -54,7 +54,6 @@ const dragAndDrop = () => {
   function dragEnter(e) {
     if (!draggedShip) return;
     e.preventDefault();
-    console.log(e);
   }
 
   function dragLeave() {

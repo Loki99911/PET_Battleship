@@ -1,4 +1,4 @@
-const gunAction = (sqwereElement, gunElement, ballElement) => {
+const gunAction = (sqwereElement, gunElement, ballElement, fieldAction) => {
   const {
     top: topSq,
     left: leftSq,
@@ -32,28 +32,25 @@ const gunAction = (sqwereElement, gunElement, ballElement) => {
 
   gunElement.style.transform = `rotate(${angle}deg)`;
 
-  setTimeout(() => {
-    ballElement.style.transform = `translate(${centerSqX - centerBallX}px, ${
-      centerSqY - centerBallY
-    }px)`;
-  }, 350);
-  
-  
-  setTimeout(() => {
+  const resetBall = () => {
+    ballElement.removeEventListener("transitionend", resetBall);
+    ballElement.style.opacity = "1";
+  };
+
+  const moveBall = () => {
+    ballElement.removeEventListener("transitionend", moveBall);
     ballElement.style.opacity = "0";
     gunElement.style.transform = "";
     ballElement.style.transform = "";
-    setTimeout(() => {
-      ballElement.style.opacity = "1";
-    }, 700);
-  }, 700);
-};
-export default gunAction;
+    ballElement.addEventListener("transitionend", resetBall);
+    fieldAction();
+  };
 
-// function moveBlock() {
-//   ballElement.classList.add("returnBall");
-//   }
-//   moveBlock();
-  // ballElement.style.transform = `translate(${centerSqX - centerBallX}px, ${
-  //   centerSqY - centerBallY
-  // }px)`;
+  ballElement.addEventListener("transitionend", moveBall);
+
+  ballElement.style.transform = `translate(${centerSqX - centerBallX}px, ${
+    centerSqY - centerBallY
+  }px)`;
+};
+
+export default gunAction;

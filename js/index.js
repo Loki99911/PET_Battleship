@@ -3,7 +3,6 @@ import shipRotate from "./shipRotate.js";
 import createField from "./createField.js";
 import refreshField from "./refreshField.js";
 import refreshCounter from "./refreshCounter.js";
-
 import startGame from "./startGame.js";
 import stopGame from "./stopGame.js";
 import addUserShips from "./addUserShips.js";

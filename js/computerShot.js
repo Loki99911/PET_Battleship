@@ -10,21 +10,24 @@ const computerShot = () => {
     return computerShot();
   }
 
-  gunAction(sqwereElement, yourGunElement, yourBallElement);
-  const shipAvailab =
-    sqwereElement.classList.contains("shipPart");
+  const youFieldAction = () => {
+    const shipAvailab = sqwereElement.classList.contains("shipPart");
+    const result = document.createElement("img");
+    result.src = shipAvailab ? "./img/shoted.png" : "./img/dot.png";
+    result.alt = shipAvailab ? "shoted" : "missed";
+    result.width = shipAvailab ? 30 : 20;
+    sqwereElement.append(result);
+  };
 
-  const result = document.createElement("img");
-
-  result.src = shipAvailab ? "./img/shoted.png" : "./img/dot.png";
-  result.alt = shipAvailab ? "shoted" : "missed";
-  result.width = shipAvailab ? 30 : 20;
-
-  sqwereElement.append(result);
-  if (shipAvailab) {
-    setTimeout(() => {
-      computerShot();
-    }, 1400);
+  const shotResult = gunAction(
+    sqwereElement,
+    yourGunElement,
+    yourBallElement,
+    youFieldAction
+  );
+  
+  if (shotResult) {
+    computerShot();
   }
 };
 

@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: 'Teko', sans-serif;
+  font-family: "Teko", sans-serif;
   transition: all 350ms linear;
   background-image: url("./img/Ship.jpg");
   background-repeat: no-repeat;
@@ -167,7 +167,7 @@ h1 {
 .surrenderBtn,
 .randomShipBtn,
 .restartBtn {
-    font-size: 24px;
+  font-size: 24px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -203,7 +203,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(10, 40px);
   grid-template-rows: repeat(10, 40px);
-  outline: 5px solid rgb(144, 0, 255);
+  outline: 5px solid #666666;
   border-radius: 1px;
   background-image: url("./img/water.jpg");
 }
@@ -325,8 +325,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border: none;
   border-radius: 50%;
   background-color: green;
