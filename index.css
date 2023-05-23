@@ -79,7 +79,7 @@ h1 {
   position: relative;
   z-index: 1;
   gap: 9px;
-  max-height: 500px;
+  max-height: 400px;
   background-color: #fff;
 }
 
@@ -92,7 +92,7 @@ h1 {
   gap: 30px;
   justify-content: center;
   transition: top 2000ms linear;
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 .buttonsWrapper.afterStart {
@@ -110,7 +110,7 @@ h1 {
   justify-content: center;
   align-items: center;
   transition: top 2000ms linear;
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 .gunsWrapper.afterStart,
@@ -201,8 +201,8 @@ h1 {
 .yourField,
 .enemyField {
   display: grid;
-  grid-template-columns: repeat(10, 50px);
-  grid-template-rows: repeat(10, 50px);
+  grid-template-columns: repeat(10, 40px);
+  grid-template-rows: repeat(10, 40px);
   outline: 5px solid rgb(144, 0, 255);
   border-radius: 1px;
   background-image: url("./img/water.jpg");
@@ -254,19 +254,19 @@ h1 {
 .shipDesk {
   outline: 2px solid black;
   border-radius: 5px;
-  width: 220px;
+  width: 180px;
 }
 .shipDesk.x1 {
-  height: 120px;
+  height: 100px;
 }
 .shipDesk.x2 {
-  height: 170px;
+  height: 140px;
 }
 .shipDesk.x3 {
-  height: 220px;
+  height: 180px;
 }
 .shipDesk.x4 {
-  height: 270px;
+  height: 220px;
 }
 
 .shipDock {
@@ -278,16 +278,16 @@ h1 {
 }
 
 .shipDock.x1 {
-  height: 70px;
+  height: 60px;
 }
 .shipDock.x2 {
-  height: 120px;
+  height: 100px;
 }
 .shipDock.x3 {
-  height: 170px;
+  height: 140px;
 }
 .shipDock.x4 {
-  height: 220px;
+  height: 180px;
 }
 
 .ship {
@@ -305,7 +305,7 @@ h1 {
   position: relative;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 40px;
   padding: 10px;
 }
 .shipStatus::before {
@@ -313,7 +313,7 @@ h1 {
   position: absolute;
   left: 0;
   top: 0;
-  width: 220px;
+  width: 180px;
   border: 1px solid #808080;
 }
 
@@ -358,8 +358,8 @@ h1 {
 .shipPart,
 .shipPart,
 .shipPart {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-color: blue;
 }
 
