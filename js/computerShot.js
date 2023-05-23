@@ -16,7 +16,7 @@ const computerShot = () => {
 
   const result = document.createElement("img");
 
-  result.src = shipAvailab ? "./../img/shoted.png" : "./../img/dot.png";
+  result.src = shipAvailab ? "./img/shoted.png" : "./img/dot.png";
   result.alt = shipAvailab ? "shoted" : "missed";
   result.width = shipAvailab ? 30 : 20;
 

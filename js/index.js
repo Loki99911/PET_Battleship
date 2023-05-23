@@ -8,7 +8,7 @@ import startGame from "./startGame.js";
 import stopGame from "./stopGame.js";
 import addUserShips from "./addUserShips.js";
 import restartGame from "./restartGame.js";
-import startFlag from "../startFlag.js";
+import startFlag from "./startFlag.js";
 
 const randomUserShip = document.querySelector(".randomShipBtn");
 const refreshBtn = document.querySelector(".refreshBtn");
