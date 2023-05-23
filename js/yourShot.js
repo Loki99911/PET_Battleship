@@ -13,7 +13,7 @@ const yourShot = (sqwereElement) => {
 
     sqwereElement.classList.remove("shadow");
     const result = document.createElement("img");
-    result.src = shipAvailab ? "./../img/shoted.png" : "./../img/dot.png";
+    result.src = shipAvailab ? "./img/shoted.png" : "./img/dot.png";
     result.alt = shipAvailab ? "shoted" : "missed";
   result.width = shipAvailab ? 30 : 20;
   console.log("перед Append");
