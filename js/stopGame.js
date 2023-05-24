@@ -4,6 +4,8 @@ const stopGame = () => {
   const enemySqweres = document.querySelectorAll(".enemySqwere");
   const gunsWrapper = document.querySelector(".gunsWrapper");
   const scoreWrapper = document.querySelector(".scoreWrapper");
+  const enemyScore = document.getElementById("enemyScore");
+
   enemySqweres.forEach((enemySqwere) => {
     enemySqwere.removeEventListener("click", doShot);
     enemySqwere.classList.remove("shadow");
@@ -22,7 +24,7 @@ const stopGame = () => {
   };
   gunsWrapper.addEventListener("transitionstart", handleTransitionstart);
   scoreWrapper.addEventListener("transitionend", handleTransitionEnd);
-
   
+  enemyScore.textContent++;
 };
 export default stopGame;
