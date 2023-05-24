@@ -6,7 +6,7 @@ const startFlag = () => {
   headerElem.style.height = "100px";
   footerElem.style.height = "100px";
   headerElem.addEventListener("transitionend", () => {
-      mainElem.style.height = "auto";
+      mainElem.style.height = "100%";
       mainElem.style.opacity = 1;
       
   });
