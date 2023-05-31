@@ -50,7 +50,8 @@ const gunAction = (sqwereElement, gunElement, ballElement, fieldAction) => {
 
   ballElement.style.transform = `translate(${centerSqX - centerBallX}px, ${
     centerSqY - centerBallY
-  }px)`;
+    }px)`;
+  return sqwereElement.classList.contains("shipPart");
 };
 
 export default gunAction;

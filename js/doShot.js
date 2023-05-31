@@ -6,7 +6,6 @@ const doShot = (event) => {
   const sqwereElement = event.target;
   const brake = yourShot(sqwereElement);
   whoWins();
-
   if (brake) return;
 
   setTimeout(() => {
@@ -15,5 +14,3 @@ const doShot = (event) => {
   }, 700);
 };
 export default doShot;
-
-
