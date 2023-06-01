@@ -260,7 +260,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  min-width: 470px;
+  width: 390px;
 }
 
 .shipPortPart {
